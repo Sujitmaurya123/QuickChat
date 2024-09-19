@@ -42,8 +42,10 @@ export const authOptions: AuthOptions = {
 
         user.id = data?.user?.id?.toString();
         user.token = data?.user?.token;
+        user.provider=data?.user?.provider
         return true;
       } catch (error) {
+        
         if (error instanceof AxiosError) {
           return redirect(`/auth/error?message=${error.message}`);
         }
